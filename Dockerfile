@@ -1,11 +1,10 @@
 # http://docs.docker.com/reference/builder
 # docker backup image (boombatower/docker-backup).
 
-FROM boombatower/opensuse
+FROM ubuntu:utopic
 MAINTAINER Jimmy Berry <jimmy@boombatower.com>
 
-RUN zypper refresh && \
-    zypper -n in --no-recommends tar xz
+RUN apt-get install -q -y xz-utils
 
 ADD backup.sh /root/bin/
 
