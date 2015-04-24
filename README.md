@@ -2,6 +2,21 @@ docker-backup
 =============
 Simple utility for backing up a Docker data container (optionally to s3).
 
+usage shortcuts
+---------------
+Add to your `~/.profile` or `~/.bashrc` for quick usage.
+```
+# usage: docker-backup <data container>
+function docker-backup {
+  docker run --rm --volumes-from $1 -v $(pwd):/backup -e TAR_OPTS="--verbose" caktux/docker-backup backup "backup_$(date +%F_%H%M%S).tar.xz"
+}
+
+# usage: docker-restore <data container> <tar.xz archive>
+function docker-restore {
+  docker run --rm --volumes-from $1 -v $(pwd):/backup -e TAR_OPTS="--verbose" caktux/docker-backup restore $2
+}
+```
+
 other solutions
 ---------------
 There are a number of existing solutions available which typically operate in a
