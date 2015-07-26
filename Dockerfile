@@ -1,8 +1,6 @@
-# http://docs.docker.com/reference/builder
-# docker backup image (boombatower/docker-backup).
-
-FROM ubuntu:utopic
-MAINTAINER Jimmy Berry <jimmy@boombatower.com>
+FROM ubuntu:vivid
+MAINTAINER caktux
+# Based on boombatower/docker-backup
 
 ENV DEBIAN_FRONTEND noninteractive
 
